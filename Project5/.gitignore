@@ -3,6 +3,6 @@
 .classpath
 .project
 .settings/
-
+.class
 # Mac
 .DS_Store
