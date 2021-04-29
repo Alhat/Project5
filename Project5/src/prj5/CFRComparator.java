@@ -32,6 +32,7 @@ public class CFRComparator implements Comparator<Race>
     @Override
     public int compare(Race race1, Race race2) 
     {
+        //checks if race1 is greater than race 2
         if (race1.getCFR() > race2.getCFR())
         {
             return 1;
