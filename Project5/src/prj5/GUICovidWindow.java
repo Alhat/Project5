@@ -51,6 +51,30 @@ public class GUICovidWindow {
         sortCFR.onClick(this, "clickedSortCFR");
         window.addButton(sortCFR, WindowSide.NORTH);
 
+        stateDC = new Button("Represent DC");
+        stateDC.onClick(this, "clickedState");
+        window.addButton(stateDC, WindowSide.SOUTH);
+
+        stateMD = new Button("Represent MD");
+        stateMD.onClick(this, "clickedState");
+        window.addButton(stateMD, WindowSide.SOUTH);
+
+        stateGA = new Button("Represent GA");
+        stateGA.onClick(this, "clickedState");
+        window.addButton(stateGA, WindowSide.SOUTH);
+
+        stateNC = new Button("Represent NC");
+        stateNC.onClick(this, "clickedState");
+        window.addButton(stateNC, WindowSide.SOUTH);
+
+        stateTN = new Button("Represent TN");
+        stateTN.onClick(this, "clickedState");
+        window.addButton(stateTN, WindowSide.SOUTH);
+
+        stateVA = new Button("Represent VA");
+        stateVA.onClick(this, "clickedState");
+        window.addButton(stateVA, WindowSide.SOUTH);
+
     }
     // ~ Methods ...............................................................
 
