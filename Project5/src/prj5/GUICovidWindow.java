@@ -26,6 +26,7 @@ public class GUICovidWindow {
     private Button stateVA;
 
     private static final int BAR_WIDTH = 0;
+   
 
     // ~ Constructor ...........................................................
     /**
