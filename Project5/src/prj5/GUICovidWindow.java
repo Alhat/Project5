@@ -26,7 +26,6 @@ public class GUICovidWindow {
     private Button stateVA;
 
     private static final int BAR_WIDTH = 0;
-   
 
     // ~ Constructor ...........................................................
     /**
@@ -40,13 +39,13 @@ public class GUICovidWindow {
         window = new Window();
         window.setTitle("Sahil Alhat, Charles Revere, and Jan Michalak");
 
-        quitButton = new Button("Quit");
-        quitButton.onClick(this, "clickedQuit");
-        window.addButton(quitButton, WindowSide.NORTH);
-
         sortAlpha = new Button("Alpha");
         sortAlpha.onClick(this, "clickedSortAlpha");
         window.addButton(sortAlpha, WindowSide.NORTH);
+
+        quitButton = new Button("Quit");
+        quitButton.onClick(this, "clickedQuit");
+        window.addButton(quitButton, WindowSide.NORTH);
 
         sortCFR = new Button("CFR");
         sortCFR.onClick(this, "clickedSortCFR");
@@ -71,9 +70,7 @@ public class GUICovidWindow {
                 }
             }
         }
-        
-        
-        
+
     }
 
 
