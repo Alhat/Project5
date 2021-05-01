@@ -7,10 +7,12 @@ import cs2.Window;
 import cs2.WindowSide;
 
 /**
+ * Front end class which displays the data
  * 
- * 
- * @author Charles Revere (charlesrevere)
- * @version 2021.04.26
+ * @author charlesrevere
+ * @author sahilalhat
+ * @author janmichalak
+ * @version 2021.04.30
  */
 public class GUICovidWindow {
     // ~ Fields ................................................................

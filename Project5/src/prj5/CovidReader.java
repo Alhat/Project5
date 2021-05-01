@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  * Reads the Covid-19 case data, which represents a number of races for any
- * given states. Parses the data file and sends a collection of State 
+ * given states. Parses the data file and sends a collection of State
  * objects to the project GUI class.
  * 
  * @author sahilalhat
@@ -18,24 +18,26 @@ import java.util.Scanner;
  */
 public class CovidReader {
     // ~ Fields ................................................................
-    
+
     private State[] states;
-    //private SinglyLinkedList<Race> races;
+    // private SinglyLinkedList<Race> races;
 
     // ~ Constructor ...........................................................
-    public CovidReader(String covidDatabase) throws FileNotFoundException,
+    public CovidReader(String covidDatabase)
+        throws FileNotFoundException,
         ParseException {
-        
+
         states = readStates(covidDatabase);
     }
     // ~ Methods ...............................................................
-    
+
+
     // ----------------------------------------------------------
     /**
      * Helper method used to read the data file.
      * 
      * @param covidDatabase
-     *                  The name of the file to parse.
+     *            The name of the file to parse.
      * @return An array of State objects.
      * @throws FileNotFoundException
      * @throws ParseException
@@ -62,12 +64,13 @@ public class CovidReader {
         return localStates;
     }
 
+
     /**
-     * Private helper method used by the readStates method to create a 
+     * Private helper method used by the readStates method to create a
      * SinglyLinkedList containing Race objects.
      * 
      * @param line
-     *          The line of the file to parse.
+     *            The line of the file to parse.
      * @return A linked list of Race objects.
      */
     private SinglyLinkedList<Race> readRaces(String[] line) {
@@ -94,12 +97,13 @@ public class CovidReader {
         return localRaces;
     }
 
+
     /**
-     * This method is used in the special cases when the cases or deaths for a 
-     * race are "NA". 
+     * This method is used in the special cases when the cases or deaths for a
+     * race are "NA".
      * 
      * @param line
-     *          The line of the file to check for NA
+     *            The line of the file to check for NA
      * @return The line of the file, with NA replaced by -1.
      */
     private String[] convertNA(String[] line) {
@@ -113,10 +117,12 @@ public class CovidReader {
 
     }
 
+
     /**
+     * Gets a line of data in the file
      * 
      * @param nextLine
-     * @return
+     * @return the values in a line
      */
     @SuppressWarnings("resource")
     private String[] getRecordFromLine(String nextLine) {
@@ -134,6 +140,8 @@ public class CovidReader {
 
 
     /**
+     * Gets the states
+     * 
      * @return the states
      */
     public State[] getStates() {
