@@ -24,6 +24,7 @@ public class GUICovidWindow {
     private Button stateNC;
     private Button stateTN;
     private Button stateVA;
+    private State currentState;
 
     private static final int BAR_WIDTH = 0;
 
@@ -35,6 +36,7 @@ public class GUICovidWindow {
      */
     public GUICovidWindow(State[] stateList) {
         states = stateList;
+        currentState = states[0];
 
         window = new Window();
         window.setTitle("Sahil Alhat, Charles Revere, and Jan Michalak");
@@ -79,20 +81,30 @@ public class GUICovidWindow {
     // ~ Methods ...............................................................
 
 
-    // ----------------------------------------------------------
-    /**
-     * 
-     * @param button
-     */
     public void clickedState(Button button) {
-        if (button.equals(stateDC)) {
-            for (int i = 0; i < states.length; i++) {
-                if (states[i].getName() == "DC") {
-                    states[i].setFlag(true);
-                    // DO GUI STUFF in here ........... (break after)
-                    break;
-                }
-            }
+        if (button.toString().substring(11).equalsIgnoreCase(stateDC.toString()
+            .substring(11))) {
+            draw(currentState.getRaces());
+        }
+        else if (button.toString().substring(11).equalsIgnoreCase(stateMD
+            .toString().substring(11))) {
+            draw(currentState.getRaces());
+        }
+        else if (button.toString().substring(11).equalsIgnoreCase(stateGA
+            .toString().substring(11))) {
+            draw(currentState.getRaces());
+        }
+        else if (button.toString().substring(11).equalsIgnoreCase(stateNC
+            .toString().substring(11))) {
+            draw(currentState.getRaces());
+        }
+        else if (button.toString().substring(11).equalsIgnoreCase(stateTN
+            .toString().substring(11))) {
+            draw(currentState.getRaces());
+        }
+        else if (button.toString().substring(11).equalsIgnoreCase(stateVA
+            .toString().substring(11))) {
+            draw(currentState.getRaces());
         }
 
     }
@@ -103,12 +115,13 @@ public class GUICovidWindow {
      * @param button
      */
     public void clickedSortAlpha(Button button) {
-        for (int i = 0; i < states.length; i++) {
-            if (states[i].isFlag()) {
-                states[i].getRaces().sort(new NameComparator());
-                // Do GUI stuff in here ........................
-            }
-        }
+        currentState.getRaces().sort(new NameComparator());
+        draw(currentState.getRaces());
+    }
+
+
+    private void draw(SinglyLinkedList<Race> x) {
+
     }
 
 
@@ -117,12 +130,7 @@ public class GUICovidWindow {
      * @param button
      */
     public void clickedSortCFR(Button button) {
-        for (int i = 0; i < states.length; i++) {
-            if (states[i].isFlag()) {
-                states[i].getRaces().sort(new CFRComparator());
-                // Do GUI stuff in here ........................
-            }
-        }
+
     }
 
 
