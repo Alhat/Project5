@@ -27,7 +27,8 @@ public class GUICovidWindow {
     private Button stateTN;
     private Button stateVA;
     private State currentState;
-    private static final double DISPLAY_FACTOR = 30;
+    private String title;
+    private static final double DISPLAY_FACTOR = 25;
     /**
      * Sets the bar width
      */
@@ -94,6 +95,7 @@ public class GUICovidWindow {
      */
     public void clickedState(Button button) {
         clean(); // cleans the screen
+        title = button.getTitle().substring(10) + " Case Fatality Ratios by Race";
         if (button.toString().substring(10).equalsIgnoreCase(stateDC.toString()
             .substring(10))) {
 
@@ -181,7 +183,9 @@ public class GUICovidWindow {
      * @param x
      */
     private void draw(SinglyLinkedList<Race> x) {
-
+        
+        window.addShape(new TextShape(300, 20, title));
+        
         for (int i = 0; i < x.size(); i++) {
             /*
              * window.addShape(new TextShape(105 + (i * 105), 250, x.get(i)
