@@ -1,6 +1,7 @@
 package prj5;
 
 import cs2.Button;
+import cs2.Shape;
 import cs2.Window;
 import cs2.WindowSide;
 
@@ -25,7 +26,10 @@ public class GUICovidWindow {
     private Button stateTN;
     private Button stateVA;
     private State currentState;
-
+    private static final double DISPLAYFACTOR = 0;
+    /**
+     * Sets the bar width
+     */
     private static final int BAR_WIDTH = 0;
 
     // ~ Constructor ...........................................................
@@ -85,7 +89,9 @@ public class GUICovidWindow {
      * and prints out the stats accordingly
      * @param button
      */
-    public void clickedState(Button button) {
+    public void clickedState(Button button) 
+    {
+        clean(); //cleans the screen
         if (button.toString().substring(11).equalsIgnoreCase(stateDC.toString()
             .substring(11))) {
             setCurrentState(button);
@@ -119,6 +125,14 @@ public class GUICovidWindow {
 
     }
     /**
+     * Takes all the bars off the screen
+     */
+    private void clean() 
+    {
+        
+        
+    }
+    /**
      * Sets the current state depending on what 
      * button is pressed
      * @param button
@@ -142,31 +156,41 @@ public class GUICovidWindow {
      * order
      * @param button is the state button
      */
-    public void clickedSortAlpha(Button button) {
+    public void clickedSortAlpha(Button button) 
+    {
+        clean();
         currentState.getRaces().sort(new NameComparator());
         draw(currentState.getRaces());
     }
 
-
-    private void draw(SinglyLinkedList<Race> x) {
-
+    /**
+     * Displays all the bars on the screen
+     * @param x 
+     */
+    private void draw(SinglyLinkedList<Race> x) 
+    {
+        window.addShape(new Shape(100, 100));;
     }
 
 
     /**
-     * 
+     * Displays the current state stats according to CFR
      * @param button
      */
-    public void clickedSortCFR(Button button) {
-
+    public void clickedSortCFR(Button button) 
+    {
+        clean();
+        currentState.getRaces().sort(new CFRComparator());
+        draw(currentState.getRaces());
     }
 
 
     /**
-     * 
+     * Closes system
      * @param button
      */
-    public void clickedQuit(Button button) {
+    public void clickedQuit(Button button) 
+    {
         System.exit(0);
     }
 
