@@ -71,18 +71,23 @@ public class State {
 
 
     /**
+     * Checks if the state is the one currently displayed
      * @return the flag
      */
-    public boolean isFlag() {
+    public boolean isFlag() 
+    {
         return flag;
     }
 
 
     /**
+     * Sets value true or false depending on whether the 
+     * state is being displayed or not
      * @param flag
      *            the flag to set
      */
-    public void setFlag(boolean flag) {
+    public void setFlag(boolean flag) 
+    {
         this.flag = flag;
     }
 }
