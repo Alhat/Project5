@@ -169,7 +169,7 @@ public class GUICovidWindow {
      */
     private void draw(SinglyLinkedList<Race> x) 
     {
-        window.addShape(new Shape(100, 75, BAR_WIDTH, (int)(DISPLAYFACTOR * x.get(0).getCFR())));
+        window.addShape(new Shape(100, 100));
     }
 
 
