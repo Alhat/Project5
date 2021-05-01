@@ -80,39 +80,67 @@ public class GUICovidWindow {
     }
     // ~ Methods ...............................................................
 
-
+    /**
+     * Determines which state you clicked on, then sets the current state
+     * and prints out the stats accordingly
+     * @param button
+     */
     public void clickedState(Button button) {
         if (button.toString().substring(11).equalsIgnoreCase(stateDC.toString()
             .substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
         else if (button.toString().substring(11).equalsIgnoreCase(stateMD
             .toString().substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
         else if (button.toString().substring(11).equalsIgnoreCase(stateGA
             .toString().substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
         else if (button.toString().substring(11).equalsIgnoreCase(stateNC
             .toString().substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
         else if (button.toString().substring(11).equalsIgnoreCase(stateTN
             .toString().substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
         else if (button.toString().substring(11).equalsIgnoreCase(stateVA
             .toString().substring(11))) {
+            setCurrentState(button);
             draw(currentState.getRaces());
         }
 
     }
+    /**
+     * Sets the current state depending on what 
+     * button is pressed
+     * @param button
+     */    private void setCurrentState(Button button) 
+    {
+        String name = button.toString();
+        for (int i = 0; i < states.length; i++)
+        {
+            if (name.substring(11).equals(states[i].getName()))
+            {
+                currentState = states[i];
+            }
+        }
+    }
+
+
 
 
     /**
-     * 
-     * @param button
+     * Displays the current state stats sorted by alphabetical
+     * order
+     * @param button is the state button
      */
     public void clickedSortAlpha(Button button) {
         currentState.getRaces().sort(new NameComparator());
