@@ -13,13 +13,14 @@ import java.text.DecimalFormat;
  */
 public class Race {
     // ~ Fields ................................................................
-    
+
     private String name;
     private int cases;
     private int deaths;
     private double cfrRatio;
     private DecimalFormat df2;
-    
+    private String formatCFR;
+
     // ~ Constructor ...........................................................
     /**
      * Creates the race object
@@ -43,9 +44,12 @@ public class Race {
         }
 
         df2 = new DecimalFormat("#.#");
+
+        formatCFR = df2.format(cfrRatio);
     }
     // ~ Methods ...............................................................
-    
+
+
     // ----------------------------------------------------------
     /**
      * returns number of cases
@@ -54,6 +58,11 @@ public class Race {
      */
     public int getCases() {
         return cases;
+    }
+
+
+    public String getFormatCFR() {
+        return formatCFR;
     }
 
 
@@ -89,7 +98,9 @@ public class Race {
 
     /**
      * Checks if the races are the same
-     * @param obj is the other object
+     * 
+     * @param obj
+     *            is the other object
      * @return true if name is the same
      */
     public boolean equals(Object obj) {

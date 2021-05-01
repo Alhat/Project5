@@ -2,6 +2,7 @@ package prj5;
 
 import cs2.Button;
 import cs2.Shape;
+import cs2.TextShape;
 import cs2.Window;
 import cs2.WindowSide;
 
@@ -26,7 +27,7 @@ public class GUICovidWindow {
     private Button stateTN;
     private Button stateVA;
     private State currentState;
-    private static final double DISPLAYFACTOR = 69;
+    private static final double DISPLAY_FACTOR = 30;
     /**
      * Sets the bar width
      */
@@ -84,101 +85,138 @@ public class GUICovidWindow {
     }
     // ~ Methods ...............................................................
 
+
     /**
      * Determines which state you clicked on, then sets the current state
-     * and prints out the stats accordingly
+     * and prints out the states accordingly
+     * 
      * @param button
      */
-    public void clickedState(Button button) 
-    {
-        clean(); //cleans the screen
-        if (button.toString().substring(11).equalsIgnoreCase(stateDC.toString()
-            .substring(11))) {
-            setCurrentState(button);
+    public void clickedState(Button button) {
+        clean(); // cleans the screen
+        if (button.toString().substring(10).equalsIgnoreCase(stateDC.toString()
+            .substring(10))) {
+
+            setCurrentState(stateDC);
             draw(currentState.getRaces());
         }
-        else if (button.toString().substring(11).equalsIgnoreCase(stateMD
-            .toString().substring(11))) {
-            setCurrentState(button);
+        else if (button.toString().substring(10).equalsIgnoreCase(stateMD
+            .toString().substring(10))) {
+
+            setCurrentState(stateMD);
             draw(currentState.getRaces());
         }
-        else if (button.toString().substring(11).equalsIgnoreCase(stateGA
-            .toString().substring(11))) {
-            setCurrentState(button);
+        else if (button.toString().substring(10).equalsIgnoreCase(stateGA
+            .toString().substring(10))) {
+
+            setCurrentState(stateGA);
             draw(currentState.getRaces());
         }
-        else if (button.toString().substring(11).equalsIgnoreCase(stateNC
-            .toString().substring(11))) {
-            setCurrentState(button);
+        else if (button.toString().substring(10).equalsIgnoreCase(stateNC
+            .toString().substring(10))) {
+
+            setCurrentState(stateNC);
             draw(currentState.getRaces());
         }
-        else if (button.toString().substring(11).equalsIgnoreCase(stateTN
-            .toString().substring(11))) {
-            setCurrentState(button);
+        else if (button.toString().substring(10).equalsIgnoreCase(stateTN
+            .toString().substring(10))) {
+
+            setCurrentState(stateTN);
             draw(currentState.getRaces());
+
         }
-        else if (button.toString().substring(11).equalsIgnoreCase(stateVA
-            .toString().substring(11))) {
-            setCurrentState(button);
+        else if (button.toString().substring(10).equalsIgnoreCase(stateVA
+            .toString().substring(10))) {
+
+            setCurrentState(stateVA);
             draw(currentState.getRaces());
         }
 
     }
+
+
     /**
      * Takes all the bars off the screen
      */
-    private void clean() 
-    {
+    private void clean() {
         window.removeAllShapes();
     }
+
+
     /**
-     * Sets the current state depending on what 
+     * Sets the current state depending on what
      * button is pressed
+     * 
      * @param button
-     */    private void setCurrentState(Button button) 
-    {
-        String name = button.toString();
-        for (int i = 0; i < states.length; i++)
-        {
-            if (name.substring(11).equals(states[i].getName()))
-            {
+     */
+    private void setCurrentState(Button button) {
+
+        for (int i = 0; i < states.length; i++) {
+            if (states[i].getName().equalsIgnoreCase(button.getTitle()
+                .substring(10))) {
                 currentState = states[i];
+                break;
             }
         }
     }
 
 
-
-
     /**
      * Displays the current state stats sorted by alphabetical
      * order
-     * @param button is the state button
+     * 
+     * @param button
+     *            is the state button
      */
-    public void clickedSortAlpha(Button button) 
-    {
+    public void clickedSortAlpha(Button button) {
         clean();
         currentState.getRaces().sort(new NameComparator());
         draw(currentState.getRaces());
     }
 
+
     /**
      * Displays all the bars on the screen
-     * test
-     * @param x 
+     * 
+     * @param x
      */
-    private void draw(SinglyLinkedList<Race> x) 
-    {
-        window.addShape(new Shape(100, 100));
+    private void draw(SinglyLinkedList<Race> x) {
+
+        for (int i = 0; i < x.size(); i++) {
+            /*
+             * window.addShape(new TextShape(105 + (i * 105), 250, x.get(i)
+             * .getName() + "\n" + x.get(i).getFormatCFR() + "%"));
+             */
+
+            if (x.get(i).getFormatCFR().equals("-1")) {
+                window.addShape(new TextShape(125 + (i * 125), 250, x.get(i)
+                    .getName()));
+
+                window.addShape(new TextShape(125 + (i * 125), 225, "NA"));
+
+            }
+            else {
+                window.addShape(new TextShape(125 + (i * 125), 250, x.get(i)
+                    .getName()));
+                window.addShape(new TextShape(125 + (i * 125), 275, "" + x.get(
+                    i).getFormatCFR() + "%"));
+
+                window.addShape(new Shape(130 + (i * 125), 225
+                    - (int)(DISPLAY_FACTOR * x.get(i).getCFR()), BAR_WIDTH,
+                    (int)(DISPLAY_FACTOR * x.get(i).getCFR())));
+            }
+
+        }
+
     }
 
 
     /**
      * Displays the current state stats according to CFR
+     * 
      * @param button
      */
-    public void clickedSortCFR(Button button) 
-    {
+    public void clickedSortCFR(Button button) {
         clean();
         currentState.getRaces().sort(new CFRComparator());
         draw(currentState.getRaces());
@@ -187,10 +225,10 @@ public class GUICovidWindow {
 
     /**
      * Closes system
+     * 
      * @param button
      */
-    public void clickedQuit(Button button) 
-    {
+    public void clickedQuit(Button button) {
         System.exit(0);
     }
 

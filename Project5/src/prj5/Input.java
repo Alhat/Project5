@@ -23,38 +23,41 @@ public class Input {
                 CovidReader file = new CovidReader(args[0]);
                 State[] states = file.getStates();
 
-                for (int i = 0; i < states.length; i++) {
-                    System.out.println(states[i].getName());
+                GUICovidWindow window = new GUICovidWindow(states);
 
-                    states[i].getRaces().sort(new NameComparator());
-                    System.out.println(states[i].toString());
-
-                    states[i].getRaces().sort(new CFRComparator());
-                    System.out.println(states[i].toString());
-
-                }
+                /*
+                 * for (int i = 0; i < states.length; i++) {
+                 * System.out.println(states[i].getName());
+                 * 
+                 * states[i].getRaces().sort(new NameComparator());
+                 * System.out.println(states[i].toString());
+                 * 
+                 * states[i].getRaces().sort(new CFRComparator());
+                 * System.out.println(states[i].toString());
+                 * 
+                 * }
+                 */
             }
             else {
 
                 CovidReader file = new CovidReader(
                     "Cases_and_Deaths_by_race_CRDT_Sep2020.csv");
                 State[] states = file.getStates();
-                
-                
+
                 GUICovidWindow window = new GUICovidWindow(states);
-                
 
-                for (int i = 0; i < states.length; i++) {
-                    System.out.println(states[i].getName());
-
-                    states[i].getRaces().sort(new NameComparator());
-                    System.out.println(states[i].toString());
-
-                    states[i].getRaces().sort(new CFRComparator());
-                    System.out.println(states[i].toString());
-
-                }
-                
+                /*
+                 * for (int i = 0; i < states.length; i++) {
+                 * System.out.println(states[i].getName());
+                 * 
+                 * states[i].getRaces().sort(new NameComparator());
+                 * System.out.println(states[i].toString());
+                 * 
+                 * states[i].getRaces().sort(new CFRComparator());
+                 * System.out.println(states[i].toString());
+                 * 
+                 * }
+                 */
 
             }
         }
