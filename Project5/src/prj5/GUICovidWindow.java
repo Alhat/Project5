@@ -45,7 +45,7 @@ public class GUICovidWindow {
         currentState = states[0];
 
         window = new Window();
-        window.setTitle("Sahil Alhat, Charles Revere, and Jan Michalak");
+        window.setTitle("salhat, charlesrevere, and janmichalak");
 
         sortAlpha = new Button("Alpha");
         sortAlpha.onClick(this, "clickedSortAlpha");
