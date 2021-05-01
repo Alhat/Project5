@@ -129,8 +129,7 @@ public class GUICovidWindow {
      */
     private void clean() 
     {
-        
-        
+        window.removeAllShapes();
     }
     /**
      * Sets the current state depending on what 
