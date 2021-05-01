@@ -164,6 +164,7 @@ public class GUICovidWindow {
 
     /**
      * Displays all the bars on the screen
+     * test
      * @param x 
      */
     private void draw(SinglyLinkedList<Race> x) 
